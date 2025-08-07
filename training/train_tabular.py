@@ -5,7 +5,7 @@ import pandas as pd
 from models.logistic import save_model
 import sys
 import os
-sys.path.append(os.path.abspath('.'))  # Add project root to sys.path
+sys.path.append(os.path.abspath('.'))  # Adding project root to sys.path
 
 def load_data():
     X_train = pd.read_csv(r"C:\Users\Nazneen\ML project\Thyroid-cancer-risk-prediction\data\tabular\processed_tabular\X_train.csv")
