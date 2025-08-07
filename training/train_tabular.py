@@ -1,17 +1,17 @@
-from models.logistic import train_logistic_model, predict_logistic_model
-from evaluations.evaluate_tabular import evalaute_model
-import pandas as pd
-   
-from models.logistic import save_model
 import sys
 import os
-sys.path.append(os.path.abspath('.'))  # Adding project root to sys.path
+sys.path.append(os.path.abspath('.')) # Adding project root to sys.path
+from models.logistic import train_logistic_model, predict_logistic_model, save_model
+from evaluations.evaluate_tabular import evalaute_model
+import pandas as pd
+
+
 
 def load_data():
     X_train = pd.read_csv(r"C:\Users\Nazneen\ML project\Thyroid-cancer-risk-prediction\data\tabular\processed_tabular\X_train.csv")
     X_test = pd.read_csv(r"C:\Users\Nazneen\ML project\Thyroid-cancer-risk-prediction\data\tabular\processed_tabular\X_test.csv")
-    y_train = pd.read_csv(r"C:\Users\Nazneen\ML project\Thyroid-cancer-risk-prediction\data\tabular\processed_tabular\y_train.csv")
-    y_test = pd.read_csv(r"C:\Users\Nazneen\ML project\Thyroid-cancer-risk-prediction\data\tabular\processed_tabular\y_test.csv")
+    y_train = pd.read_csv(r"C:\Users\Nazneen\ML project\Thyroid-cancer-risk-prediction\data\tabular\processed_tabular\y_train.csv").values.ravel()
+    y_test = pd.read_csv(r"C:\Users\Nazneen\ML project\Thyroid-cancer-risk-prediction\data\tabular\processed_tabular\y_test.csv").values.ravel()
     return X_train, X_test, y_train, y_test
 
 def main():
@@ -21,5 +21,5 @@ def main():
    evalaute_model(y_test, predict)
    save_model(model)
 
-if __name__=="__main__":
-    main()          #for preventing automatic execution
+# if __name__=="__main__":
+#     main()          #for preventing automatic execution
